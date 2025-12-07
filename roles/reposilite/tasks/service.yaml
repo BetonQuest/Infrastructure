@@ -1,0 +1,12 @@
+---
+- name: Create reposilite systemd service file
+  ansible.builtin.template:
+    src: reposilite.service.j2
+    dest: /etc/systemd/system/reposilite.service
+  notify: Restart reposilite
+
+- name: Reload systemd and enable reposilite service
+  ansible.builtin.service:
+    name: reposilite
+    daemon_reload: true
+    enabled: true

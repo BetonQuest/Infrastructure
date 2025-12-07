@@ -1,0 +1,12 @@
+---
+- name: Install required packages
+  community.general.pacman:
+    name: python-github3py
+    state: present
+
+- name: Create reposilite user
+  ansible.builtin.user:
+    name: reposilite
+    system: true
+    shell: /usr/bin/nologin
+    home: /server/reposilite

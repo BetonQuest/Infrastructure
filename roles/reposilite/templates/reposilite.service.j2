@@ -1,0 +1,16 @@
+[Unit]
+Description=Reposilite
+After=network.target
+
+[Service]
+Type=simple
+LimitNOFILE=65536
+WorkingDirectory=/server/reposilite
+ExecStart=/usr/lib/jvm/java-21-openjdk/bin/java -Xmx128M -jar reposilite.jar
+User=reposilite
+Restart=on-failure
+SuccessExitStatus=143
+TimeoutSec=60
+
+[Install]
+WantedBy=multi-user.target

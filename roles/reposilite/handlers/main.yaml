@@ -1,0 +1,9 @@
+- name: Restart reposilite
+  ansible.builtin.service:
+    name: reposilite
+    state: restarted
+
+- name: Reload nginx
+  ansible.builtin.service:
+    name: nginx
+    state: reloaded

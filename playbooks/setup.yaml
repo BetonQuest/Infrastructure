@@ -1,0 +1,7 @@
+---
+- name: Setup BetonQuest Host
+  hosts: beton_quest
+  become: true
+  roles:
+    - role: reposilite
+      tags: [ reposilite ]
