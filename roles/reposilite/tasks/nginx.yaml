@@ -1,5 +1,19 @@
 ---
-- name: Create reposilite nginx site file
+- name: Create site root
+  ansible.builtin.file:
+    path: /server/www/betonquest/repo
+    state: directory
+    owner: http
+    group: http
+    mode: '0750'
+
+- name: Ensure SSL certificate exists
+  ansible.builtin.include_role:
+    name: nginx/certificate
+  vars:
+    domain: repo.betonquest.org
+
+- name: Create reposilite nginx site
   ansible.builtin.template:
     src: org.betonquest.repo.conf.j2
     dest: /etc/nginx/sites/org.betonquest.repo.conf

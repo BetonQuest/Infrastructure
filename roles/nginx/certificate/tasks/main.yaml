@@ -1,0 +1,14 @@
+---
+- name: Check that all required variables are set
+  ansible.builtin.fail:
+    msg: domain variable must be set to request a certificate
+  when: domain is not defined
+
+- name: Detect if a certificate exists
+  ansible.builtin.stat:
+    path: '/etc/letsencrypt/live/{{ domain }}'
+  register: certificate
+
+- name: Request initial Let's Encrypt certificate
+  ansible.builtin.include_tasks: obtain.yaml
+  when: not certificate.stat.exists

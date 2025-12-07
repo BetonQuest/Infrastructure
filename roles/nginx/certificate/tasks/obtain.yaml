@@ -1,0 +1,27 @@
+---
+- name: Create certbot site root
+  ansible.builtin.file:
+    path: /server/www/certbot
+    state: directory
+    owner: http
+    group: http
+    mode: '0750'
+
+- name: Create minimal nginx site
+  ansible.builtin.template:
+    src: site.conf.j2
+    dest: /etc/nginx/sites/certbot.conf
+
+- name: Apply new nginx config
+  ansible.builtin.include_role:
+    name: nginx/common
+    tasks_from: reload
+
+- name: Request initial certificate
+  ansible.builtin.command: certbot -n --nginx -d '{{ domain }}'
+
+- name: Delete minimal nginx site again
+  ansible.builtin.file:
+    path: /etc/nginx/sites/certbot.conf
+    state: absent
+  notify: Reload nginx
