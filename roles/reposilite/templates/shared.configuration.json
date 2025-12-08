@@ -1,0 +1,1101 @@
+{
+  "authentication": {
+    "ldap": {
+      "enabled": false,
+      "ssl": false,
+      "hostname": "ldap.domain.com",
+      "port": 389,
+      "baseDn": "dc=company,dc=com",
+      "searchUserDn": "cn=reposilite,ou=admins,dc=domain,dc=com",
+      "searchUserPassword": "reposilite-admin-secret",
+      "typeAttribute": "person",
+      "userAttribute": "cn",
+      "userFilter": "(&(objectClass=person)(ou=Maven Users))",
+      "userType": "PERSISTENT"
+    }
+  },
+  "statistics": {
+    "enabled": true,
+    "resolvedRequestsInterval": "MONTHLY"
+  },
+  "maven": {
+    "repositories": [
+      {
+        "id": "betonquest",
+        "visibility": "PUBLIC",
+        "redeployment": false,
+        "preserveSnapshots": true,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "STRICT",
+        "metadataMaxAge": 0,
+        "proxied": [
+          {
+            "reference": "https://nexus.betonquest.org/repository/betonquest/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "betonquest-private",
+        "visibility": "PRIVATE",
+        "redeployment": false,
+        "preserveSnapshots": true,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "STRICT",
+        "metadataMaxAge": 0,
+        "proxied": []
+      },
+      {
+        "id": "mirror",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "betonquest",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "maven-central",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "apache-snapshots",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "apache-releases",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "sonatype-snapshots",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "papermc",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "citizensnpcs",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "codemc",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "enginehub",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "extendedclip",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "fancyinnovations",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "githubusercontent-Shopkeepers",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "hc",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "jitpack",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "lumine",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "mg-dev",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "minebench",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "meetgames",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "phoenixdevt",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "pyr",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "skriptlang",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "alessiodp",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "maven-central",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://repo1.maven.org/maven2/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "apache-snapshots",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://repository.apache.org/content/repositories/snapshots/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "sonatype-releases",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://oss.sonatype.org/content/repositories/releases/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "sonatype-snapshots",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://oss.sonatype.org/content/repositories/snapshots/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "papermc",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://artifactory.papermc.io/artifactory/universe/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "citizensnpcs",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://maven.citizensnpcs.co/repo",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "codemc",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://repo.codemc.io/repository/maven-public/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "enginehub",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://maven.enginehub.org/repo/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "extendedclip",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://repo.extendedclip.com/content/repositories/placeholderapi/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "fancyinnovations",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://repo.fancyinnovations.com/releases",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "githubusercontent-Shopkeepers",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://raw.githubusercontent.com/Shopkeepers/Repository/main/releases/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "hc",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://nexus.hc.to/content/repositories/pub_releases/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "jitpack",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://jitpack.io",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "lumine",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://mvn.lumine.io/repository/maven-public/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "mg-dev",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://ci.mg-dev.eu/plugin/repository/everything",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "minebench",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://repo.minebench.de/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "neetgames",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://nexus.neetgames.com/repository/maven-releases/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "phoenixdevt",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://nexus.phoenixdevt.fr/repository/maven-public/",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "pyr",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://repo.pyr.lol/snapshots",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "skriptlang",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://repo.skriptlang.org/releases",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      },
+      {
+        "id": "alessiodp",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://repo.alessiodp.com/releases",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
+      }
+    ]
+  },
+  "frontend": {
+    "id": "betonquest",
+    "title": "BetonQuest",
+    "description": "BetonQuest artifacts and dependencies mirror",
+    "organizationWebsite": "https://betonquest.org",
+    "organizationLogo": "https://betonquest.org/RELEASE/_media/brand/Icon/Icon1K.png",
+    "icpLicense": ""
+  },
+  "web": {
+    "forwardedIp": "X-Forwarded-For"
+  }
+}
