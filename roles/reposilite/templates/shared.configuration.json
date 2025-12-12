@@ -32,7 +32,7 @@
           "maxResourceLockLifetimeInSeconds": 60
         },
         "storagePolicy": "STRICT",
-        "metadataMaxAge": 0,
+        "metadataMaxAge": 86400,
         "proxied": [
           {
             "reference": "https://nexus.betonquest.org/repository/betonquest/",
@@ -69,7 +69,7 @@
           "maxResourceLockLifetimeInSeconds": 60
         },
         "storagePolicy": "STRICT",
-        "metadataMaxAge": 0,
+        "metadataMaxAge": 86400,
         "proxied": []
       },
       {
