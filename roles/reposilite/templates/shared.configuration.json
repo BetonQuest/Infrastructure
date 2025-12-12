@@ -33,29 +33,7 @@
         },
         "storagePolicy": "STRICT",
         "metadataMaxAge": 86400,
-        "proxied": [
-          {
-            "reference": "https://nexus.betonquest.org/repository/betonquest/",
-            "store": true,
-            "allowedGroups": [],
-            "allowedExtensions": [
-              ".jar",
-              ".war",
-              ".pom",
-              ".xml",
-              ".module",
-              ".md5",
-              ".sha1",
-              ".sha256",
-              ".sha512",
-              ".asc"
-            ],
-            "connectTimeout": 3,
-            "readTimeout": 15,
-            "httpProxy": "",
-            "authenticatedFetchingOnly": false
-          }
-        ]
+        "proxied": []
       },
       {
         "id": "betonquest-private",
