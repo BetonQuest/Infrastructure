@@ -18,6 +18,17 @@
     "enabled": true,
     "resolvedRequestsInterval": "MONTHLY"
   },
+  "frontend": {
+    "id": "betonquest",
+    "title": "BetonQuest",
+    "description": "BetonQuest artifacts and dependencies mirror",
+    "organizationWebsite": "https://betonquest.org",
+    "organizationLogo": "https://betonquest.org/RELEASE/_media/brand/Icon/Icon1K.png",
+    "icpLicense": ""
+  },
+  "web": {
+    "forwardedIp": "X-Forwarded-For"
+  },
   "maven": {
     "repositories": [
       {
@@ -276,6 +287,16 @@
           },
           {
             "reference": "alessiodp",
+            "store": false,
+            "allowedGroups": [],
+            "allowedExtensions": [],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          },
+          {
+            "reference": "reposilite",
             "store": false,
             "allowedGroups": [],
             "allowedExtensions": [],
@@ -1062,18 +1083,44 @@
             "authenticatedFetchingOnly": false
           }
         ]
+      },
+      {
+        "id": "reposilite",
+        "visibility": "HIDDEN",
+        "redeployment": false,
+        "preserveSnapshots": false,
+        "storageProvider": {
+          "type": "fs",
+          "quota": "100%",
+          "mount": "",
+          "maxResourceLockLifetimeInSeconds": 60
+        },
+        "storagePolicy": "PRIORITIZE_UPSTREAM_METADATA",
+        "metadataMaxAge": 86400,
+        "proxied": [
+          {
+            "reference": "https://maven.reposilite.com/releases<",
+            "store": true,
+            "allowedGroups": [],
+            "allowedExtensions": [
+              ".jar",
+              ".war",
+              ".pom",
+              ".xml",
+              ".module",
+              ".md5",
+              ".sha1",
+              ".sha256",
+              ".sha512",
+              ".asc"
+            ],
+            "connectTimeout": 3,
+            "readTimeout": 15,
+            "httpProxy": "",
+            "authenticatedFetchingOnly": false
+          }
+        ]
       }
     ]
-  },
-  "frontend": {
-    "id": "betonquest",
-    "title": "BetonQuest",
-    "description": "BetonQuest artifacts and dependencies mirror",
-    "organizationWebsite": "https://betonquest.org",
-    "organizationLogo": "https://betonquest.org/RELEASE/_media/brand/Icon/Icon1K.png",
-    "icpLicense": ""
-  },
-  "web": {
-    "forwardedIp": "X-Forwarded-For"
   }
 }
