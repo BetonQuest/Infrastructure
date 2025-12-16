@@ -1,4 +1,10 @@
 ---
+- name: Setup reposilite shared.configuration.json
+  ansible.builtin.template:
+    src: shared.configuration.json.j2
+    dest: /server/reposilite/shared.configuration.json
+  notify: Restart reposilite
+
 - name: Create reposilite systemd service file
   ansible.builtin.template:
     src: reposilite.service.j2
