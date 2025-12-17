@@ -29,6 +29,29 @@
   "web": {
     "forwardedIp": "X-Forwarded-For"
   },
+  "pommapper": {
+    "namingConventionWarning": true,
+    "runExistenceChecks": true,
+    "validationLogLevel": "ALL",
+    "artifacts": [
+      {
+        "id": "BetonQuest",
+        "repository": "betonquest",
+        "groupId": "org.betonquest",
+        "artifactId": "betonquest",
+        "versionXPath": [
+          {
+            "id": "pluginVersion",
+            "xpath": "/project/properties/plugin.version/text()"
+          },
+          {
+            "id": "betonquestVersion",
+            "xpath": "/project/properties/betonquest.version/text()"
+          }
+        ]
+      }
+    ]
+  },
   "maven": {
     "repositories": [
       {
@@ -1099,7 +1122,7 @@
         "metadataMaxAge": 86400,
         "proxied": [
           {
-            "reference": "https://maven.reposilite.com/releases<",
+            "reference": "https://maven.reposilite.com/releases",
             "store": true,
             "allowedGroups": [],
             "allowedExtensions": [
