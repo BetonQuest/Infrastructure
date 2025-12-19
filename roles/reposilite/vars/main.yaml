@@ -1,0 +1,52 @@
+reposilite:
+  repos:
+    - id: betonquest
+      visibility: PUBLIC
+      mirror: true
+    - id: betonquest-private
+      visibility: PRIVATE
+  mirrors:
+    - id: maven-central
+      reference: https://repo1.maven.org/maven2/
+    - id: apache-snapshots
+      reference: https://repository.apache.org/content/repositories/snapshots/
+    - id: sonatype-releases
+      reference: https://oss.sonatype.org/content/repositories/releases/
+    - id: sonatype-snapshots
+      reference: https://oss.sonatype.org/content/repositories/snapshots/
+    - id: papermc
+      reference: https://artifactory.papermc.io/artifactory/universe/
+    - id: citizensnpcs
+      reference: https://maven.citizensnpcs.co/repo
+    - id: codemc
+      reference: https://repo.codemc.io/repository/maven-public/
+    - id: enginehub
+      reference: https://maven.enginehub.org/repo/
+    - id: extendedclip
+      reference: https://repo.extendedclip.com/content/repositories/placeholderapi/
+    - id: fancyinnovations
+      reference: https://repo.fancyinnovations.com/releases
+    - id: githubusercontent-Shopkeepers
+      reference: https://raw.githubusercontent.com/Shopkeepers/Repository/main/releases/
+    - id: hc
+      reference: https://nexus.hc.to/content/repositories/pub_releases/
+    - id: jitpack
+      reference: https://jitpack.io
+    - id: lumine
+      reference: https://mvn.lumine.io/repository/maven-public/
+    - id: mg-dev
+      reference: https://ci.mg-dev.eu/plugin/repository/everything
+    - id: minebench
+      reference: https://repo.minebench.de/
+    - id: neetgames
+      reference: https://nexus.neetgames.com/repository/maven-releases/
+    - id: phoenixdevt
+      reference: https://nexus.phoenixdevt.fr/repository/maven-public/
+    - id: pyr
+      reference: https://repo.pyr.lol/snapshots
+    - id: skriptlang
+      reference: https://repo.skriptlang.org/releases
+    - id: alessiodp
+      reference: https://repo.alessiodp.com/releases
+    - id: reposilite
+      reference: https://maven.reposilite.com/releases
