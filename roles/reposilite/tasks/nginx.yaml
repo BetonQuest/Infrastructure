@@ -16,5 +16,5 @@
 - name: Create reposilite nginx site
   ansible.builtin.template:
     src: org.betonquest.repo.conf.j2
-    dest: /etc/nginx/sites/org.betonquest.repo.conf
+    dest: /etc/nginx/sites.d/org.betonquest.repo.conf
   notify: Reload nginx

@@ -32,6 +32,6 @@
 
 - name: Create sites directory
   ansible.builtin.file:
-    path: /etc/nginx/sites
+    path: /etc/nginx/sites.d
     state: directory
     mode: '0755'
