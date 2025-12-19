@@ -1,8 +1,4 @@
 ---
-- name: Create server directory
-  ansible.builtin.file:
-    path: /server
-    state: directory
-    owner: root
-    group: root
-    mode: '0755'
+- ansible.builtin.import_tasks: groups.yaml
+- ansible.builtin.import_tasks: sudo.yaml
+- ansible.builtin.import_tasks: directories.yaml

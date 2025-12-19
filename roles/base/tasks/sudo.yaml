@@ -1,0 +1,6 @@
+---
+- name: Create sudoers config for admin group
+  ansible.builtin.template:
+    src: admin.j2
+    dest: /etc/sudoers.d/admin
+

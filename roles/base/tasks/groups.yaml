@@ -1,0 +1,10 @@
+---
+- name: Create admin group
+  ansible.builtin.group:
+    name: admin
+    gid: 2000
+
+- name: Create human group
+  ansible.builtin.group:
+    name: human
+    gid: 2001
