@@ -1,13 +1,11 @@
-fastcgi_split_path_info ^(.+?\.php)(\/.*|)$;
+fastcgi_index index.php;
+fastcgi_split_path_info ^(.+?\.php)(/.*|)$;
 
 fastcgi_param HTTP_PROXY "";
-
-fastcgi_pass unix:/run/php-fpm/php-fpm.sock;
-
 include fastcgi_params;
-fastcgi_param	PATH_INFO		$fastcgi_path_info;
+fastcgi_param PATH_INFO $fastcgi_path_info;
 
-fastcgi_param	modHeadersAvailable	true;
-fastcgi_param	front_controller_active	true;
-fastcgi_intercept_errors		on;
-fastcgi_request_buffering		off;
+fastcgi_intercept_errors on;
+fastcgi_request_buffering off;
+
+fastcgi_pass php;
