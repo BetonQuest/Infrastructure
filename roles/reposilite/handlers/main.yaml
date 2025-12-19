@@ -1,3 +1,4 @@
+---
 - name: Restart reposilite
   ansible.builtin.service:
     name: reposilite
