@@ -45,3 +45,9 @@ reposilite:
       reference: https://maven.reposilite.com/releases
     - id: jitpack
       reference: https://jitpack.io
+    - id: nexomc
+      reference: https://repo.nexomc.com/releases
+    - id: momirealms
+      reference: https://repo.momirealms.net/releases/
+    - id: devs
+      reference: https://maven.devs.beer/
