@@ -2,3 +2,4 @@
 - ansible.builtin.import_tasks: groups.yaml
 - ansible.builtin.import_tasks: sudo.yaml
 - ansible.builtin.import_tasks: directories.yaml
+- ansible.builtin.import_tasks: dependencies.yaml

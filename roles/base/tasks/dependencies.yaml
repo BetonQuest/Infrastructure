@@ -1,0 +1,5 @@
+---
+- name: Install Ansible tasks dependencies
+  community.general.pacman:
+    name: python-github3py
+    state: present

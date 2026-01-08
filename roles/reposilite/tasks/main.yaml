@@ -2,4 +2,3 @@
 - ansible.builtin.import_tasks: base.yaml
 - ansible.builtin.import_tasks: service.yaml
 - ansible.builtin.import_tasks: nginx.yaml
-
