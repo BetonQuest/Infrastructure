@@ -6,6 +6,6 @@ It is implemented via [Ansible](https://docs.ansible.com/projects/ansible/latest
 
 To set up the server just run:
 ```shell
-ansible-playbook playbooks/setup.yaml --diff --check # to verify what would be changed
+ansible-playbook playbooks/setup.yaml --check # to verify what would be changed
 ansible-playbook playbooks/setup.yaml # to apply the changes
 ```
