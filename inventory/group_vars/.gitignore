@@ -1,0 +1,3 @@
+# protect some file names for usage with secrets
+secret*.yaml
+*.local.*
