@@ -1,0 +1,14 @@
+---
+- name: Require secrets for Stalwart config to be present
+  when: stalwart_admin.name == None or stalwart_admin.secret == None
+  ansible.builtin.fail:
+    msg: stalwart_admin.name and stalwart_admin.secret variables must be provided
+
+- name: Create Stalwart config
+  ansible.builtin.template:
+    src: config.toml.j2
+    dest: '{{ stalwart_path }}/config.toml'
+    owner: stalwart
+    group: stalwart
+    mode: '0640'
+  notify: Restart Stalwart

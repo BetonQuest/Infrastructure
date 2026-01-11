@@ -1,0 +1,94 @@
+[config]
+local-keys = [
+  "config.local-keys.*",
+  "store.*",
+  "directory.*",
+  "tracer.*",
+  "!server.blocked-ip.*",
+  "!server.allowed-ip.*",
+  "server.*",
+  "certificate.*",
+  "cluster.*",
+  "storage.data",
+  "storage.blob",
+  "storage.lookup",
+  "storage.fts",
+  "storage.directory",
+  "authentication.fallback-admin.*",
+  "enterprise.license-key",
+  "http.*",
+  "webadmin.*",
+]
+
+[authentication.fallback-admin]
+user = "{{ stalwart_admin.name }}"
+secret = "{{ stalwart_admin.secret }}"
+
+[store.rocksdb]
+type = "rocksdb"
+path = "{{ stalwart_path }}/data"
+compression = "lz4"
+
+[directory.internal]
+type = "internal"
+store = "rocksdb"
+
+[storage]
+blob = "rocksdb"
+data = "rocksdb"
+directory = "internal"
+fts = "rocksdb"
+lookup = "rocksdb"
+
+[server]
+hostname = "server.betonquest.org"
+max-connections = 8192
+
+[server.socket]
+backlog = 1024
+nodelay = true
+reuse-addr = true
+reuse-port = true
+
+[server.listener]
+http.bind = "127.0.0.1:{{ stalwart_http_local_port }}"
+http.protocol = "http"
+
+imap.bind = "[::]:143"
+imap.protocol = "imap"
+
+imaptls.bind = "[::]:993"
+imaptls.protocol = "imap"
+imaptls.tls.implicit = true
+
+pop3.bind = "[::]:110"
+pop3.protocol = "pop3"
+
+pop3s.bind = "[::]:995"
+pop3s.protocol = "pop3"
+pop3s.tls.implicit = true
+
+sieve.bind = "[::]:4190"
+sieve.protocol = "managesieve"
+
+smtp.bind = "[::]:25"
+smtp.protocol = "smtp"
+
+submission.bind = "[::]:587"
+submission.protocol = "smtp"
+
+submissions.bind = "[::]:465"
+submissions.protocol = "smtp"
+submissions.tls.implicit = true
+
+[http]
+url = "https://mail.betonquest.org"
+use-x-forwarded = true
+
+[webadmin]
+auto-update = true
+
+[tracer.journal]
+type = "journal"
+level = "info"
+enable = true

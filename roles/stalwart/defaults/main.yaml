@@ -1,0 +1,13 @@
+stalwart_binaries:
+  version: 0.15.3
+  arch: x86_64-unknown-linux-gnu
+  executables:
+    - name: stalwart
+      checksum: sha256:28eaf22a445bbf144a759056285a9e021e0504d4d2a8e32883d985120798b72b
+    - name: stalwart-cli
+      checksum: sha256:b4a4c51a1a4eb84fea2921e50aad1c14f4d52e5b56768ecd162da7bc4d71d3a3
+stalwart_path: /server/stalwart
+stalwart_http_local_port: 8083
+stalwart_admin:
+  name: null
+  secret: null # https://stalw.art/docs/auth/authentication/password

@@ -1,0 +1,16 @@
+---
+- name: Create Stalwart user
+  ansible.builtin.user:
+    name: stalwart
+    system: true
+    shell: /usr/bin/nologin
+    home: '{{ stalwart_path }}'
+    create_home: false
+
+- name: Create Stalwart home
+  ansible.builtin.file:
+    path: '{{ stalwart_path }}'
+    state: directory
+    owner: stalwart
+    group: stalwart
+    mode: '0750'

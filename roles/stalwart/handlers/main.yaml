@@ -1,0 +1,8 @@
+---
+- name: Restart Stalwart
+  ansible.builtin.debug:
+    msg: Restarting Stalwart...
+  changed_when: true
+#  ansible.builtin.service:
+#    name: stalwart
+#    state: restarted

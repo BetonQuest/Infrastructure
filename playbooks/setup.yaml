@@ -13,3 +13,5 @@
       tags: [ nginx ]
     - role: reposilite
       tags: [ reposilite ]
+    - role: stalwart
+      tags: [ stalwart ]

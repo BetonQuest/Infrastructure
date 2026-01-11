@@ -1,0 +1,46 @@
+---
+- name: Create local temp-dir for Stalwart binaries
+  delegate_to: localhost
+  run_once: true
+  become: false
+  changed_when: false
+  check_mode: false
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: stalwart
+  register: stalwart_tmp
+
+- name: Ensure local temp-dir for Stalwart binaries gets deleted after use
+  block:
+    - name: Download Stalwart binaries
+      delegate_to: localhost
+      run_once: true
+      become: false
+      changed_when: false
+      check_mode: false
+      ansible.builtin.get_url:
+        url: 'https://github.com/stalwartlabs/stalwart/releases/download/v{{ stalwart_binaries.version }}/{{ item.name }}-{{ stalwart_binaries.arch }}.tar.gz'
+        dest: '{{ stalwart_tmp.path }}/{{ item.name }}.tar.gz'
+        checksum: '{{ item.checksum }}'
+      loop: '{{ stalwart_binaries.executables }}'
+
+    - name: Install Stalwart binaries
+      ansible.builtin.unarchive:
+        src: '{{ stalwart_tmp.path }}/{{ item.name }}.tar.gz'
+        dest: '/usr/local/bin'
+        mode: '755'
+        owner: root
+        group: root
+      loop: '{{ stalwart_binaries.executables }}'
+      notify: Restart Stalwart
+
+  always:
+    - name: Delete Stalwart binaries temp-dir
+      delegate_to: localhost
+      run_once: true
+      become: false
+      changed_when: false
+      check_mode: false
+      ansible.builtin.file:
+        state: absent
+        path: '{{ stalwart_tmp.path }}'

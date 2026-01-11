@@ -1,0 +1,12 @@
+---
+- name: Create Stalwart systemd service file
+  ansible.builtin.template:
+    src: stalwart.service.j2
+    dest: /etc/systemd/system/stalwart.service
+  notify: Restart Stalwart
+
+- name: Reload systemd and enable Stalwart service
+  ansible.builtin.service:
+    name: stalwart
+    daemon_reload: true
+    enabled: true

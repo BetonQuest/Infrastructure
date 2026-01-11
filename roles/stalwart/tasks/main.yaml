@@ -1,0 +1,5 @@
+---
+- ansible.builtin.import_tasks: base.yaml
+- ansible.builtin.import_tasks: binary.yaml
+- ansible.builtin.import_tasks: config.yaml
+#- ansible.builtin.import_tasks: service.yaml
