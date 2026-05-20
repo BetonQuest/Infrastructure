@@ -51,3 +51,5 @@ reposilite:
       reference: https://repo.momirealms.net/releases/
     - id: devs
       reference: https://maven.devs.beer/
+    - id: faststats
+      reference: https://repo.faststats.dev/releases
