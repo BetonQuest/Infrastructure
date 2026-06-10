@@ -53,3 +53,5 @@ reposilite:
       reference: https://maven.devs.beer/
     - id: faststats
       reference: https://repo.faststats.dev/releases
+    - id: breweryteam
+      reference: https://repo.breweryteam.dev/releases
