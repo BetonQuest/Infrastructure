@@ -55,5 +55,5 @@ reposilite:
       reference: https://repo.faststats.dev/releases
     - id: breweryteam
       reference: https://repo.breweryteam.dev/releases
-    - id: scarsz-discordsrv
+    - id: scarsz
       reference: https://nexus.scarsz.me/content/groups/public/
